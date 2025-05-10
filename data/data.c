@@ -4,7 +4,6 @@
 #include <string.h>
 
 int generate_random = 1;
-int idx = 0;
 
 void insert_from_console(Book *book)
 {
@@ -17,7 +16,7 @@ void insert_from_console(Book *book)
             exit(EXIT_FAILURE);
         }
 
-        snprintf(book->key, 4, "%d", idx++);
+        snprintf(book->key, 4, "%d", rand() % 1000);
 
         getchar(); // Clear the newline character from the input buffer
         printf("Enter book title: ");
@@ -53,7 +52,7 @@ void insert_random(Book *book)
             exit(EXIT_FAILURE);
         }
 
-        snprintf(book->key, 4, "%d", idx++);
+        snprintf(book->key, 4, "%d", rand() % 1000);
         snprintf(book->title, STRING_SIZE, "Book %u", rand() % 1000);
         snprintf(book->author, STRING_SIZE, "Author %u", rand() % 1000);
         book->year = 1900 + (rand() % 123);           // Random year between 1900 and 2022
